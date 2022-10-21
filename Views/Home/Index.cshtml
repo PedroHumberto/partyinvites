@@ -5,14 +5,15 @@
 <html>
     <head>
         <meta name="viewport" content="width=device-width"/>
+        <link rel="stylesheet" href="/lib/bootstrap/dist/css/bootstrap.css">
         <title>Party!</title>
     </head>
     <body>
         <div>
-            <div>
+            <div class="text-center">
                 <h1>We're going to have an exciting party!</h1>
+                <a class="btn btn-primary" asp-action="RsvpForm"> RSVP Now</a>
             </div>
-            <a asp-action="RsvpForm"> RSVP Now</a>
         </div>
     </body>
 </html>

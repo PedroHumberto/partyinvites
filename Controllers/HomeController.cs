@@ -19,8 +19,14 @@ public class HomeController : Controller
 
     [HttpPost]
     public ViewResult RsvpForm(GuestResponse guestResponse){
-        Repository.AddResponse(guestResponse);
-        return View("Thanks", guestResponse);
+        ViewResult myView = View();
+        if(ModelState.IsValid){ // The razor can acces to the datails of any validation erros associeted with the request.
+
+            Repository.AddResponse(guestResponse);
+            myView = View("Thanks", guestResponse);
+        }else myView = View();
+
+        return myView;
     }
 
     public ViewResult ListResponce(){

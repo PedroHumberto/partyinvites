@@ -7,44 +7,52 @@
 
 <!DOCTYPE html>
 <html lang="en">
+
 <head>
     <meta charset="UTF-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width">
+    <link rel="stylesheet" href="/css/style.css">
+    <link rel="stylesheet" href="/lib/bootstrap/dist/css/bootstrap.css">
     <title>RsvpForm</title>
 </head>
-<body>
-    <div>
-        <h1>RsvpForm View</h1>
-    </div>
 
-    <form asp-action="RsvpForm" method="post">
+<body>
         <div>
-            <label asp-for="Name">Your Name:</label>
-            <input asp-for="Name" />
-            
+            <h1 class="bg-primary text-white text-center m-2 p-2">RsvpForm View</h1>
         </div>
-        <div>
-            <label asp-for="Email">Your Email:</label>
-            <input asp-for="Email" />
-            
-        </div>
-        <div>
-            <label asp-for="Phone">Your Phone:</label>
-            <input asp-for="Phone" />
-        </div>
-        <div>
-            <label>Will you attend?</label>
-            <select asp-for="WillAttend">
-                <option value="">Choose an Option</option>
-                <option value="true">Yes, I'll be there</option>
-                <option value="false">No, I can't come</option>
-            </select>
-        </div>
-        <button type="submit">Submit RsvpForm</button>
-    </form>
+    <div class="container">
+        <form asp-action="RsvpForm" method="post" class="m-2">
+            <div asp-validation-summary="All"></div> @* asp-validation-summary: atribute applied to a div elemetn, displays
+                list of validation erros [Enumeration ValidationSummary] - this atribute returns a Enumeration of erros.*@
+            <div class="form-group">
+                <label asp-for="Name">Your Name:</label>
+                <input asp-for="Name" class="form-control"/>
+
+            </div>
+            <div class="form-group">
+                <label asp-for="Email">Your Email:</label>
+                <input asp-for="Email" class="form-control" />
+
+            </div>
+            <div class="form-group">
+                <label asp-for="Phone">Your Phone:</label>
+                <input asp-for="Phone" class="form-control"/>
+            </div>
+            <div class="form-group">
+                <label>Will you attend?</label>
+                <select asp-for="WillAttend" class="form-control">
+                    <option value="">Choose an Option</option>
+                    <option value="true">Yes, I'll be there</option>
+                    <option value="false">No, I can't come</option>
+                </select>
+            </div>
+            <button type="submit" class="btn btn-primary">Submit RsvpForm</button>
+        </form>
+    </div>
 
 
 
 </body>
+
 </html>
